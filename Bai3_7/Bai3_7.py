@@ -8,7 +8,8 @@ import matplotlib.pyplot as plt
 
 # %% RESIZE function
 width, height = pyautogui.size()
-
+width = width/2
+height = height/2
 # resize fuction
 
 
@@ -44,7 +45,7 @@ def resize_frame(image, COLOUR=[0, 0, 0]):
         df /= 2
         image = cv2.copyMakeBorder(image, 0, 0, int(
             df), int(df), cv2.BORDER_CONSTANT, value=COLOUR)
-    image = cv2.resize(image, (1280, 720), interpolation=cv2.INTER_AREA)
+    image = cv2.resize(image, (640, 375), interpolation=cv2.INTER_AREA)
     return image
 
 
@@ -53,9 +54,10 @@ img = resize_frame(img)
 
 gray = img[:, :, 2]*0.2126 + img[:, :, 1]*0.7152 + img[:, :, 0]*0.0722
 gray = gray.astype(np.uint8)
-cv2.imshow("Gray HDTV", gray)
+cv2.imshow("Image Origin Gray", gray)
 cv2.waitKey(0)
 
+# %%
 
 # Create a histogram array
 hist1, bins1 = np.histogram(gray.flatten(), 256, [0, 256])
@@ -92,22 +94,6 @@ plt.show()
 
 # stacking images
 w = np.hstack((gray, y))
-cv2.imshow('Original Image', img)
+cv2.imshow('Original Image', gray)
 cv2.imshow('Transformed Images', w)
-cv2.waitKey()
-
-
-# %%
-
-# reading the input image
-img = cv2.imread('./kurumi.jpg')
-
-# define colors to plot the histograms
-colors = ('b', 'g', 'r')
-
-# compute and plot the image histograms
-for i, color in enumerate(colors):
-    hist = cv2.calcHist([img], [i], None, [256], [0, 256])
-    plt.plot(hist, color=color)
-plt.title('Image Histogram GFG')
-plt.show()
+cv2.waitKey(0)
