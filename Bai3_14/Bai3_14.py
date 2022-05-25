@@ -172,7 +172,7 @@ def reduce_init_t(init_t):
     return init_t
 
 
-im = cv2.imread('./image.webp')
+im = cv2.imread('./test.png')
 orig = im.copy()
 
 tmin = 0.1   # minimum value for t to make J image
@@ -185,8 +185,10 @@ eps = 1e-3   # for J image
 I = np.asarray(im, dtype=np.float64)  # Convert the input to an array.
 I = I[:, :, :3] / 255
 
+
 f_enhanced = dehaze(I, tmin, w, alpha, omega, p, eps)
 f_enhanced2 = dehaze(I, tmin, w, alpha, omega, p, eps, True)
+
 cv2.imshow('original', orig)
 cv2.imshow('F_enhanced', f_enhanced)
 cv2.imshow('F_enhanced2', f_enhanced2)
