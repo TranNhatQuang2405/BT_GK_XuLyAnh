@@ -77,3 +77,5 @@ axarr[1, 1].set_title('Bilateral')
 axarr[1, 2].imshow(output_med)
 axarr[1, 2].set_title('Median Blur')
 plt.show()
+
+# %%

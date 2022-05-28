@@ -51,9 +51,9 @@ def change_color_balance(image, R, G, B):
 original = open_image('./image.jpg')
 
 # Const
-R = 1
+R = 0.5
 G = 0.5
-B = 1
+B = 0.5
 
 # Change balance
 new = change_color_balance(original, R, G, B)

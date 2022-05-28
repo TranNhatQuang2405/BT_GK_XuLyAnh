@@ -27,7 +27,7 @@ def printArray(array):
 # bw_img = np.array([
 #   [0, 0, 0],
 #   [0, 1, 0],
-#   [0, 0, 0
+#   [0, 0, 0]
 # ])
 bw_img = np.array(
     [

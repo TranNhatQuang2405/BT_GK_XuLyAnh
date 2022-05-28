@@ -94,6 +94,6 @@ plt.show()
 
 # stacking images
 w = np.hstack((gray, y))
-cv2.imshow('Original Image', gray)
+# cv2.imshow('Original Image', gray)
 cv2.imshow('Transformed Images', w)
 cv2.waitKey(0)
